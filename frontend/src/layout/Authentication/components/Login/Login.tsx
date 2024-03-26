@@ -10,11 +10,13 @@ import { appActions } from '../../../../store/store';
 import { FormEvent, useState } from 'react';
 import axios from 'axios';
 import { SERVER_URL } from '../../../../config/apiConfig';
+import { useNavigate } from 'react-router-dom';
 
 function Login(props: LoginProps) {
   const { className, loginPhase } = props;
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const navigate = useNavigate();
   const {
     loginHeader,
     loginButton,
@@ -53,8 +55,11 @@ function Login(props: LoginProps) {
      *
      * }]
      */
-    const findUser = await data.find((item) => item.email === userEmail);
-    console.log(findUser);
+    const findUser = data.find((item) => item.email === userEmail);
+    if (findUser.password !== userPassword)
+      return console.log('Wrong password');
+
+    navigate('/home');
   };
 
   return (

@@ -143,7 +143,9 @@ export const ProfileDetailsForm = (props: profileDetailsProps) => {
             inputValue={email}
           />
 
-          <Button priority='secondary'>SUBMIT</Button>
+          <Button priority='secondary' type='submit'>
+            SUBMIT
+          </Button>
         </form>
       </Card>
     </section>

@@ -51,7 +51,8 @@
     }
 
     & input {
-      width: 60%;
+      // width: 60%;
+      width: 80%;
 
       @include responsiveMax($tablet-land) {
         width: 100%;
