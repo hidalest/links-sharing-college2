@@ -118,28 +118,24 @@ const InputText = forwardRef(
             className={styles.inputIcon}
           />
         )}
-        <div>
-          <input
-            type={type}
-            value={inputText}
-            onChange={onInputValueChange}
-            className={`${styles.inputText} ${styles[errorClass]}`}
-            name='inputLink'
-            onBlur={onInputFocus}
-            ref={ref}
-            aria-invalid={isInputValid === false ? 'true' : 'false'} // Set ARIA attributes
-            aria-describedby={
-              isInputValid === false ? 'error-message' : undefined
-            }
-            maxLength={maxLength}
-          />
-          {!inputText.length && (
-            <span className={styles.placeholder}>{placeholder}</span>
-          )}
-          {!isInputValid && (
-            <span className={styles.errorMessage}>{errorMessage}</span>
-          )}
-        </div>
+        <input
+          type={type}
+          value={inputText}
+          onChange={onInputValueChange}
+          className={`${styles.inputText} ${styles[errorClass]}`}
+          name='inputLink'
+          onBlur={onInputFocus}
+          ref={ref}
+          aria-invalid={isInputValid === false ? 'true' : 'false'} // Set ARIA attributes
+          aria-describedby={
+            isInputValid === false ? 'error-message' : undefined
+          }
+          maxLength={maxLength}
+          placeholder={placeholder}
+        />
+        {!isInputValid && (
+          <span className={styles.errorMessage}>{errorMessage}</span>
+        )}
       </div>
     );
   }
