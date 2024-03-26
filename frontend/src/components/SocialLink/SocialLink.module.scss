@@ -1,0 +1,43 @@
+@import '../../sassStyles/variables';
+
+.linkContainer {
+  // position: absolute;
+  background-color: $white;
+  // top: 35rem;
+  width: 25rem;
+  height: 33rem;
+  overflow-y: auto;
+  /* Hiding scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hiding scrollbar for IE, Edge and Firefox */
+  & {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .link {
+    background-color: $red;
+    height: 5rem;
+    padding: 1.4rem 1.6rem;
+    border-radius: $border-radius;
+    margin: 1rem 0 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+
+    .linkInfoContainer {
+      display: flex;
+      align-items: center;
+    }
+
+    .platformName {
+      margin-left: 1rem;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+  }
+}

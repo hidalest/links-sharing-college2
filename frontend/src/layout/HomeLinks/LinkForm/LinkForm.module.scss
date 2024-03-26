@@ -1,0 +1,95 @@
+@import '../../../sassStyles/variables';
+@import '../../../sassStyles/mixins';
+
+.platformLink {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 2.4rem 0;
+
+  @include responsiveMax($tablet) {
+    margin: 2.4rem 0;
+  }
+
+  & .dragContainer {
+    display: flex;
+    align-items: center;
+    & button {
+      padding-left: 0;
+      cursor: grab;
+    }
+  }
+
+  & .enumeration {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+    color: $grey;
+  }
+  & .actionButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & button {
+      text-transform: capitalize;
+      font-size: 1.6rem;
+      color: $grey;
+      font-weight: lighter;
+    }
+  }
+
+  .platformSubheadings {
+    margin: 0.4rem 0;
+    font-weight: lighter;
+    font-size: 12px;
+  }
+
+  .platformContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .linkContainer {
+    margin-top: 1.2rem;
+
+    & input {
+      width: 100%;
+    }
+  }
+
+  .inputColorContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    & input {
+      width: 5.5rem;
+      border-radius: 5rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: transparent;
+      border: 1px solid $light-grey;
+      cursor: pointer;
+
+      &::-webkit-color-swatch {
+        border-radius: 15px;
+        border: none;
+      }
+      &::-moz-color-swatch {
+        border-radius: 15px;
+        border: none;
+      }
+    }
+  }
+
+  .addBtn {
+    width: revert;
+    padding: 1.1rem 2.7rem;
+    text-align: center;
+    position: absolute;
+    right: 6.4rem;
+  }
+}

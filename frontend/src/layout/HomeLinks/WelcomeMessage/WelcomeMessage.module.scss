@@ -1,0 +1,31 @@
+@import '../../../sassStyles/variables';
+
+.welcomeMessage {
+  text-align: center;
+  height: 43.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & img {
+    width: 12.4rem;
+    height: 8rem;
+  }
+
+  & h2 {
+    color: $dark-grey;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+    margin: 2.4rem 0;
+  }
+
+  & p {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: lighter;
+    line-height: 150%; /* 24px */
+    color: $grey;
+  }
+}

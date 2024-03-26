@@ -1,0 +1,28 @@
+@import '../../../sassStyles/variables';
+
+.inputColor {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  margin-right: 2rem;
+
+  input {
+    appearance: none;
+    margin-right: 1rem;
+    border: none;
+    border-radius: $border-radius;
+    appearance: none;
+    box-shadow: rgba($color: $dark-grey, $alpha: 0.5);
+    cursor: pointer;
+
+    &::color-swatch {
+      border: 3px;
+    }
+  }
+
+  label {
+    color: $dark-grey;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+  }
+}

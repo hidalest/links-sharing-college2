@@ -1,0 +1,79 @@
+@import "../../../sassStyles/variables";
+@import "../../../sassStyles/mixins";
+
+.inputContainer {
+  position: relative;
+
+  & .inputIcon {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    transform: translateY(-50%);
+  }
+
+  .label {
+    color: var(--Grey, #737373);
+    /* Body M */
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: lighter;
+    line-height: 150%; /* 24px */
+    padding-right: 2rem;
+    position: relative;
+
+    &.hideLabel {
+      position: absolute;
+      left: -90000px;
+    }
+    &.showLabel {
+      position: relative;
+    }
+  }
+
+  .isRequiredStar {
+    position: absolute;
+    right: 1rem;
+  }
+
+  .errorMessage {
+    position: absolute;
+    right: 10px;
+    top: 30%;
+    font-size: 12px;
+    color: $red;
+    @include responsiveMax($tablet) {
+      top: 115%;
+      left: 0;
+    }
+  }
+}
+.inputText {
+  padding: 1.6rem 1.2rem;
+  padding-left: 3.5rem;
+  border: 1px solid $light-grey;
+  border-radius: 5px;
+
+  &.inputInvalid {
+    box-shadow: none;
+    outline: 1px solid $red;
+    transition: all 200ms ease-out;
+  }
+}
+.inputText:focus {
+  box-shadow: 0 0 20px 5px rgba($color: $purple, $alpha: 0.4);
+  outline: 1px solid $purple;
+}
+
+.placeholder {
+  font-size: 1.6rem;
+  color: $grey;
+  opacity: 0.8;
+  font-size: 1.6rem;
+  position: absolute;
+  top: 50%;
+  left: 3.5rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

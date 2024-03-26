@@ -1,0 +1,33 @@
+@import '../../sassStyles/mixins';
+@import '../../sassStyles/variables';
+.phone-mockup {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 43.5rem;
+
+  position: relative;
+
+  .userInfo--phoneMockup {
+    position: absolute;
+
+    &-full {
+      top: 14.5rem;
+    }
+
+    &-partial {
+      top: 24.5rem;
+    }
+  }
+
+  .socialLinksContainer {
+    position: absolute;
+    top: 35rem;
+  }
+
+  @include responsiveMax($tablet) {
+    display: none;
+  }
+}

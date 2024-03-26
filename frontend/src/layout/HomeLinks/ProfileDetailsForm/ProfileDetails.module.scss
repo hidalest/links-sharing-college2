@@ -1,0 +1,61 @@
+@import '../../../sassStyles/variables';
+@import '../../../sassStyles/mixins';
+
+.profileDetails {
+  .heading {
+    /* Heading M */
+    color: $dark-grey;
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 700;
+    // line-height: 150%; /* 48px */
+  }
+
+  .heading-instructions {
+    color: var(--Grey, #737373);
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: lighter;
+    line-height: 2.3rem;
+    margin-top: 0.8rem;
+  }
+
+  .inputFormContainer {
+    margin-top: 2rem;
+    padding: 2rem 4rem;
+  }
+
+  .inputProfileForm {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      align-self: flex-end;
+
+      @include responsiveMax($tablet-land) {
+        align-self: flex-start;
+      }
+    }
+  }
+
+  .inputTextContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1.2rem 0;
+
+    @include responsiveMax($tablet-land) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    & input {
+      width: 60%;
+
+      @include responsiveMax($tablet-land) {
+        width: 100%;
+      }
+    }
+  }
+}

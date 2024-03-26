@@ -1,0 +1,50 @@
+@import "./sassStyles/variables";
+@import "./sassStyles/mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+body {
+  background-color: $borders;
+  @include responsiveMax($phone) {
+    padding: 0;
+  }
+
+  & .main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    height: 100vh;
+
+    @include responsiveMax($phone) {
+      padding: 2.4rem;
+    }
+  }
+
+  & .buttonSave--container {
+    background-color: $white;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    padding: 2rem;
+
+    & button {
+      text-align: center;
+      width: 93%;
+    }
+  }
+
+  .authentication {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../sassStyles/_variables.scss';
+
+.authenticationContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & img {
+    width: 13.5rem;
+    flex-shrink: 0;
+    padding-bottom: 2rem;
+  }
+}

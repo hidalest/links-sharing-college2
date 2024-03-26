@@ -1,0 +1,70 @@
+@import '../../../sassStyles/variables';
+
+.dropdownContainer {
+  position: relative;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  color: var($dark-grey, #333);
+
+  & img {
+    margin-right: 0.5rem;
+  }
+
+  &:hover {
+    color: black;
+  }
+
+  &.open {
+    box-shadow: 0 0 20px 5px rgba($color: $purple, $alpha: 0.4);
+    outline: 1px solid $purple;
+  }
+}
+
+.dropdownItems {
+  display: none;
+  position: absolute;
+  z-index: 200;
+  width: 100%;
+  right: 0;
+  top: 4rem;
+  padding: 0;
+  border: 1px solid $grey;
+  max-height: 40rem;
+  overflow-y: scroll;
+
+  & article {
+    all: unset;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+
+    & img {
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      background-color: $borders;
+      color: $purple;
+      &:first-child {
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid $grey;
+    }
+  }
+
+  .dropdownContainer.open & {
+    display: flex;
+    flex-direction: column;
+  }
+}

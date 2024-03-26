@@ -1,0 +1,84 @@
+@import "../../../../sassStyles/variables.scss";
+
+.loginContainer {
+  display: flex;
+  padding: 4rem;
+  flex-direction: column;
+  align-items: flex-start;
+
+  & .inputsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  & img {
+    width: 13.5rem;
+    flex-shrink: 0;
+    padding-bottom: 2rem;
+  }
+
+  & input {
+    width: 39.6rem;
+  }
+
+  & h1 {
+    color: var(--Dark-Grey, #333);
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 48px */
+  }
+
+  & p {
+    color: var(--Grey, #737373);
+
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    padding-top: 0.8rem;
+  }
+
+  & label {
+    color: var(--Dark-Grey, #333);
+    margin-top: 2.4rem;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+  }
+
+  & .submitButton {
+    align-self: stretch;
+    margin-top: 2.4rem;
+    text-align: center;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+  }
+
+  // create account or login button
+  & .buttonCombo {
+    margin-top: 2.4rem;
+    display: flex;
+    align-items: center;
+
+    & button {
+      margin-top: 0;
+      padding: 0;
+      text-align: left;
+      text-align: center;
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%; /* 24px */
+    }
+  }
+  & .pButtonCombo {
+    padding: 0;
+    margin-right: 1rem;
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "theme": "light",
+  "mainLogoDesktop": "/src/assets/images/logo-devlinks-large.svg",
+  "mainLogoSmall": "/src/assets/images/logo-devlinks-small.svg",
+  "homeLinksData": {
+    "navbarProps": {
+      "logoLinkPage": "/src/assets/images/icon-links-header.svg",
+      "logoProfilePage": "/src/assets/images/icon-profile-details-header.svg",
+      "linkPageCopy": "Links",
+      "profileDetailsPageCopy": "Profile Details",
+      "buttonPreviewCopy": "Preview",
+      "buttonPreviewIcon": "/src/assets/images/icon-preview-header.svg"
+    },
+    "phoneMockupImage": "/src/assets/images/illustration-phone-mockup.svg",
+    "mainHeader": "Customize Your Links",
+    "mainInstructions": "Add/edit/remove links below and then share all your profiles with the world!",
+    "addNewLinkButtonCopy": "+ Add new link",
+    "removeLinkCopy": "Remove",
+    "welcomeMessage": {
+      "secondaryHeader": "Let's gets you started",
+      "secondaryMainImage": "/src/assets/images/illustration-empty.svg",
+      "secondaryInstructions": "Use the “Add new link” button to get started. Once you have more than one link, you can reorder and edit them. We’re here to help you share your profiles with everyone!"
+    },
+    "saveButton": {
+      "btnPriority": "primary",
+      "btnCopy": "Save"
+    },
+    "defaultLink": {
+      "icon": "/src/assets/images/icon-github.svg",
+      "name": "Github",
+      "placeholderLink": "https://www.github.com/hidalest"
+    },
+    "linkFormProps": {
+      "heading": "Link",
+      "removeButton": "Remove",
+      "platformHeading": "Platform",
+      "linkSubheading": "Link",
+      "dragAndDropIcon": "/src/assets/images/icon-drag-and-drop.svg",
+      "addButton": "Add",
+      "sources": [
+        {
+          "id": 1,
+          "icon": "/src/assets/images/icon-codepen.svg",
+          "name": "Codepen",
+          "placeholderLink": "https://www.codepen.com/hidalest"
+        },
+        {
+          "id": 2,
+          "icon": "/src/assets/images/icon-codewars.svg",
+          "name": "Codewars",
+          "placeholderLink": "https://www.codewars.com/hidalest"
+        },
+        {
+          "id": 3,
+          "icon": "/src/assets/images/icon-facebook.svg",
+          "name": "Facebook",
+          "placeholderLink": "https://www.facebook.com/hidalest"
+        },
+        {
+          "id": 4,
+          "icon": "/src/assets/images/icon-freecodecamp.svg",
+          "name": "Freecodecamp",
+          "placeholderLink": "https://www.freecodecamp.com/hidalest"
+        },
+        {
+          "id": 5,
+          "icon": "/src/assets/images/icon-frontend-mentor.svg",
+          "name": "Front End Mentor",
+          "placeholderLink": "https://www.frontendmentor.com/hidalest"
+        },
+        {
+          "id": 6,
+          "icon": "/src/assets/images/icon-gitlab.svg",
+          "name": "Gitlab",
+          "placeholderLink": "https://www.gitlab.com/hidalest"
+        },
+        {
+          "id": 7,
+          "icon": "/src/assets/images/icon-hashnode.svg",
+          "name": "Hashnode",
+          "placeholderLink": "https://www.hashnode.com/hidalest"
+        },
+        {
+          "id": 8,
+          "icon": "/src/assets/images/icon-linkedin.svg",
+          "name": "LinkedIn",
+          "placeholderLink": "https://www.Linkedin.com/hidalest"
+        },
+        {
+          "id": 9,
+          "icon": "/src/assets/images/icon-stack-overflow.svg",
+          "name": "StackOverflow",
+          "placeholderLink": "https://www.stackoverflow.com/hidalest"
+        },
+        {
+          "id": 10,
+          "icon": "/src/assets/images/icon-twitch.svg",
+          "name": "Twitch",
+          "placeholderLink": "https://www.twitch.com/hidalest"
+        },
+        {
+          "id": 11,
+          "icon": "/src/assets/images/icon-youtube.svg",
+          "name": "Youtube",
+          "placeholderLink": "https://www.youtube.com/hidalest"
+        },
+        {
+          "id": 12,
+          "icon": "/src/assets/images/icon-devto.svg",
+          "name": "DevTo",
+          "placeholderLink": "https://www.devto.com/hidalest"
+        },
+        {
+          "id": 13,
+          "icon": "/src/assets/images/icon-github.svg",
+          "name": "Github",
+          "placeholderLink": "https://www.github.com/hidalest"
+        }
+      ],
+      "inputLinkIcon": "/src/assets/images/icon-link.svg"
+    },
+    "phoneMockupProps": {
+      "arrowIconLinks": "/src/assets/images/icon-arrow-right.svg"
+    },
+    "profileDetailsProps": {
+      "heading": "Profile Details",
+      "headingInstructions": "Add your details to create a personal touch to your profile.",
+      "profilePictureImageLabel": "Profile Picture",
+      "profilePictureImageInstructions": "Image must be below 1024x1024px. Use PNG or JPG format.",
+      "profilePictureImageIcon": "/src/assets/images/icon-upload-image.svg",
+      "profilePictureImagePlaceholder": "+ Upload Image",
+      "firstNameLabel": "Username",
+      "firstNamePlaceholder": "e.g. Noobmaster69",
+      "firstNameErrorMessage": "Please enter a valid name",
+      "secondLastNameLabel": "Last Name",
+      "secondLastNamePlaceholder": "e.g. Appleseed",
+      "secondNameErrorMessage": "Please enter a valid name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "e.g. email@example.com",
+      "emailErrorMessage": "Please enter a valid email"
+    }
+  },
+  "previewPageProps": {
+    "navbarProps": {
+      "goBackBtn": "Go Back",
+      "shareLinkBtn": "Share Link"
+    }
+  },
+  "authenticationPhaseProps": {
+    "loginPhase": {
+      "loginHeader": "Login",
+      "loginInstructions": "Add your details below to get back into the app",
+      "inputPasswordEmailIcon": "/src/assets/images/icon-email.svg",
+      "emailIcon": "/src/assets/images/icon-email.svg",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "e.g. alex@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "passwordIcon": "/src/assets/images/icon-password.svg",
+      "loginButton": "Login",
+      "registerInstructionsBtn": "Don’t have an account?",
+      "registerBtn": "Create account"
+    },
+    "signupPhase": {
+      "loginHeader": "Create account",
+      "loginInstructions": "Let’s get you started sharing your links!",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "e.g. alex@email.com",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "noobmaster69",
+      "usernameIcon": "/src/assets/images/icon-profile-details-header.svg",
+      "inputPasswordIcon": "/src/assets/images/icon-password.svg",
+      "inputPasswordEmailIcon": "/src/assets/images/icon-email.svg",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Enter your password",
+      "passwordInstructions": "Password must contain 8 to 16 characters",
+      "loginButton": "Login",
+      "registerInstructionsBtn": "Already have an account? ",
+      "registerBtn": "Create account"
+    }
+  }
+}

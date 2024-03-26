@@ -1,0 +1,75 @@
+@import '../../sassStyles/variables';
+@import '../../sassStyles/mixins';
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeLinks {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 63%;
+  height: 80rem;
+
+  @include responsiveMax($tablet) {
+    width: 100%;
+  }
+
+  & h1 {
+    font-size: 3.2rem;
+    color: $dark-grey;
+
+    @include responsiveMax($tablet) {
+      font-size: 2.4rem;
+    }
+  }
+
+  @include responsiveMax($phone) {
+    margin-top: 0;
+  }
+
+  &-mainInstructions {
+    color: $grey;
+    font-weight: lighter;
+    margin-top: 0.8rem;
+    line-height: 2.3rem;
+    font-size: 1.2rem;
+
+    @include responsiveMax($tablet) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &-buttonAdd {
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2.4rem;
+    font-size: 1.6rem;
+  }
+
+  & .linksContainer {
+    height: 435px;
+    overflow-y: auto;
+  }
+}
+
+.buttonSave--container {
+  display: flex;
+  justify-content: flex-end;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 1px solid $light-grey;
+  margin-top: 2rem;
+
+  & button {
+    text-align: center;
+    padding: 1.1rem 2.7rem;
+    font-size: 1.6rem;
+    @include responsiveMax($phone) {
+      width: 100%;
+    }
+  }
+}

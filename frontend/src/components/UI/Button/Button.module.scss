@@ -1,0 +1,59 @@
+@import "../../../sassStyles/variables";
+
+.button {
+  all: unset;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: capitalize;
+  // color: var(--white, #fff);
+  // font-size: 1.6rem;
+  // font-style: normal;
+  // font-weight: 600;
+  // line-height: 150%; /* 24px */
+}
+
+.button-primary {
+  background-color: $purple;
+  color: whitesmoke;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 200ms ease-out;
+}
+
+.button-primary:hover {
+  background-color: $purple-hover;
+  color: $dark-grey;
+  transition: all 200ms ease-out;
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: $purple;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: all 200ms ease-out;
+  border: 1px solid $purple;
+}
+
+.button-secondary:hover {
+  background-color: $purple-light;
+  transition: all 200ms ease-out;
+  border: 1px solid $purple;
+}
+
+.button-secondary:active {
+  transform: translateY(2px);
+  transition: all 200ms ease-out;
+}
+
+.button-tertiary {
+  color: black;
+  border: none;
+  font-size: inherit;
+}
+
+.button-tertiary:hover {
+  color: $purple;
+}

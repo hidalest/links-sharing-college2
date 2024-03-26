@@ -1,0 +1,27 @@
+@import '../../../sassStyles/variables';
+@import '../../../sassStyles/mixins';
+
+.card {
+  border-radius: $border-radius;
+  padding: 2rem;
+  @include responsiveMax($phone-mini) {
+    padding: 2rem;
+  }
+}
+
+.grey {
+  background-color: $borders;
+}
+
+.white {
+  background-color: $white;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.card-dragging {
+  border: 1px solid $purple-light;
+  background-color: $purple-light;
+}
