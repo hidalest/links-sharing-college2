@@ -45,6 +45,14 @@ function Login(props: LoginProps) {
     const data = await axios.get(SERVER_URL).then((res) => res.data.data);
     console.log(data);
 
+    /**
+     * Type will be:
+     * email: string
+     * password: string
+     * links: [{
+     *
+     * }]
+     */
     const findUser = await data.find((item) => item.email === userEmail);
     console.log(findUser);
   };
