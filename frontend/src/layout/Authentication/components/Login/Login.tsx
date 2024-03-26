@@ -7,6 +7,9 @@ import Button from '../../../../components/UI/Button/Button';
 import styles from './Login.module.scss';
 import { useAppDispatch } from '../../../../hooks/hooks';
 import { appActions } from '../../../../store/store';
+import { FormEvent } from 'react';
+import axios from 'axios';
+import { SERVER_URL } from '../../../../config/apiConfig';
 
 function Login(props: LoginProps) {
   const { className, loginPhase } = props;
@@ -35,11 +38,17 @@ function Login(props: LoginProps) {
   const onChangeViewToSignup = () =>
     dispatch(appActions.changeAuthenticationView());
 
+  const onSubmitLoginHandler = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = await axios.get(SERVER_URL).then((res) => res.data.data);
+    console.log(data);
+  };
+
   return (
     <Card priority='white' className={`${styles.loginContainer} ${className}`}>
       <h1>{loginHeader}</h1>
       <p>{loginInstructions}</p>
-      <div className={styles.inputsContainer}>
+      <form className={styles.inputsContainer} onSubmit={onSubmitLoginHandler}>
         <label htmlFor='inputEmail'>{emailLabel}</label>
         <InputText
           errorMessageProp={''}
@@ -49,7 +58,7 @@ function Login(props: LoginProps) {
           label={emailLabel}
           placeholder={emailPlaceholder}
           returnIsInputValid={getEmailInputInfo}
-          shouldValidate={false}
+          shouldValidate={true}
           validationregex={emailRegex}
         />
         <label htmlFor='inputPassword'>{passwordLabel}</label>
@@ -61,13 +70,13 @@ function Login(props: LoginProps) {
           label={passwordLabel}
           placeholder={passwordPlaceholder}
           returnIsInputValid={getPasswordInput}
-          shouldValidate={false}
+          shouldValidate={true}
           validationregex={passwordRegex}
         />
-      </div>
-      <Button priority='primary' className={styles.buttonLogin}>
-        {loginButton}
-      </Button>
+        <Button priority='primary' className={styles.buttonLogin} type='submit'>
+          {loginButton}
+        </Button>
+      </form>
       <div className={styles.buttonCombo}>
         <p className={styles.pButtonCombo}>{registerInstructionsBtn}</p>
         <Button priority='tertiary' onClick={onChangeViewToSignup}>
