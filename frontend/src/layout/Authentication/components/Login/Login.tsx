@@ -7,12 +7,14 @@ import Button from '../../../../components/UI/Button/Button';
 import styles from './Login.module.scss';
 import { useAppDispatch } from '../../../../hooks/hooks';
 import { appActions } from '../../../../store/store';
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import axios from 'axios';
 import { SERVER_URL } from '../../../../config/apiConfig';
 
 function Login(props: LoginProps) {
   const { className, loginPhase } = props;
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
   const {
     loginHeader,
     loginButton,
@@ -29,10 +31,10 @@ function Login(props: LoginProps) {
 
   const dispatch = useAppDispatch();
   const getEmailInputInfo = (isValid: boolean, inputValue: string) => {
-    console.log(isValid, inputValue);
+    setUserEmail(inputValue);
   };
   const getPasswordInput = (isValid: boolean, inputValue: string) => {
-    console.log(isValid, inputValue);
+    setUserPassword(inputValue);
   };
 
   const onChangeViewToSignup = () =>
@@ -42,6 +44,9 @@ function Login(props: LoginProps) {
     e.preventDefault();
     const data = await axios.get(SERVER_URL).then((res) => res.data.data);
     console.log(data);
+
+    const findUser = await data.find((item) => item.email === userEmail);
+    console.log(findUser);
   };
 
   return (
