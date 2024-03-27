@@ -22,6 +22,8 @@ interface InputsDataProps {
 }
 export const ProfileDetailsForm = (props: profileDetailsProps) => {
   const userProfileDispatch = useAppDispatch();
+  const userProfileSelector = useAppSelector((store) => store.userProfile);
+  console.log('Profile Details Form', userProfileSelector);
   const {
     profileImgURL,
     username: firstName,
@@ -51,11 +53,11 @@ export const ProfileDetailsForm = (props: profileDetailsProps) => {
 
   const [inputsData, setInputsData] = useState<InputsDataProps>({
     firstNameInputData: {
-      inputValue: '',
+      inputValue: userProfileSelector.username || '',
       isValid: null,
     },
     emailInputData: {
-      inputValue: '',
+      inputValue: userProfileSelector.email || '',
       isValid: null,
     },
   });

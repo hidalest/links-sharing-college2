@@ -6,7 +6,7 @@ import Button from '../../../../components/UI/Button/Button';
 
 import styles from './Login.module.scss';
 import { useAppDispatch } from '../../../../hooks/hooks';
-import { appActions } from '../../../../store/store';
+import { appActions, userProfileActions } from '../../../../store/store';
 import { FormEvent, useState } from 'react';
 import axios from 'axios';
 import { SERVER_URL } from '../../../../config/apiConfig';
@@ -17,6 +17,7 @@ function Login(props: LoginProps) {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const navigate = useNavigate();
+  const userProfileDispatch = useAppDispatch();
   const {
     loginHeader,
     loginButton,
@@ -45,7 +46,6 @@ function Login(props: LoginProps) {
   const onSubmitLoginHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = await axios.get(SERVER_URL).then((res) => res.data.data);
-    console.log(data);
 
     /**
      * Type will be:
@@ -60,6 +60,12 @@ function Login(props: LoginProps) {
       return console.log('Wrong password');
 
     navigate('/home');
+    userProfileDispatch(
+      userProfileActions.updateUserProfile({
+        username: findUser.username || '',
+        email: findUser.email || '',
+      })
+    );
   };
 
   return (
