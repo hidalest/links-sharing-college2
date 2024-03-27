@@ -1,4 +1,4 @@
-import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, configureStore, PayloadAction } from '@reduxjs/toolkit';
 
 type UserLink = {
   name: string;
@@ -36,25 +36,28 @@ const linkStoreInitialState: AppState = {
 };
 
 const linksStore = createSlice({
-  name: "links",
+  name: 'links',
   initialState: linkStoreInitialState,
   reducers: {
+    updateLinksFromFetch(state, action: PayloadAction<UserLink[]>) {
+      state.links = action.payload;
+    },
     addingNewLink(state) {
       state.links.push({
-        name: "Github",
-        userLink: "",
+        name: 'Github',
+        userLink: '',
         linkId: Math.random().toString(),
-        placeholderLink: "https://www.github.com/hidalest",
-        icon: "/src/assets/images/icon-github.svg",
+        placeholderLink: 'https://www.github.com/hidalest',
+        icon: '/src/assets/images/icon-github.svg',
         isValid: false,
-        backgroundColor: "#333333",
-        fontColor: "#ffffff",
+        backgroundColor: '#333333',
+        fontColor: '#ffffff',
       });
     },
 
     removeLink(state, action: PayloadAction<string>) {
       state.links = state.links.filter(
-        (link) => link.linkId !== action.payload,
+        (link) => link.linkId !== action.payload
       );
     },
 
@@ -96,27 +99,27 @@ const linksStore = createSlice({
 
 // APP General Store
 interface appStoreInitialStateProps {
-  theme: "light" | "dark";
-  currentView: "links" | "profileDetails";
-  currentAuthenticationView: "login" | "signup";
+  theme: 'light' | 'dark';
+  currentView: 'links' | 'profileDetails';
+  currentAuthenticationView: 'login' | 'signup';
 }
 
 const appStoreInitialState: appStoreInitialStateProps = {
-  theme: "dark",
-  currentView: "links",
-  currentAuthenticationView: "login",
+  theme: 'dark',
+  currentView: 'links',
+  currentAuthenticationView: 'login',
 };
 
 const appSlice = createSlice({
-  name: "app",
+  name: 'app',
   initialState: appStoreInitialState,
   reducers: {
-    changeView(state, action: PayloadAction<"links" | "profileDetails">) {
+    changeView(state, action: PayloadAction<'links' | 'profileDetails'>) {
       state.currentView = action.payload;
     },
     changeAuthenticationView(state) {
       state.currentAuthenticationView =
-        state.currentAuthenticationView === "login" ? "signup" : "login";
+        state.currentAuthenticationView === 'login' ? 'signup' : 'login';
     },
   },
 });
@@ -131,18 +134,18 @@ interface userProfileInitialStateProps {
 }
 
 const userProfileInitialState: userProfileInitialStateProps = {
-  username: "",
-  email: "",
+  username: '',
+  email: '',
   profileImgURL: null,
 };
 
 const userProfileSlice = createSlice({
-  name: "userProfileSlice",
+  name: 'userProfileSlice',
   initialState: userProfileInitialState,
   reducers: {
     updateUserProfile(
       state,
-      action: PayloadAction<userProfileInitialStateProps>,
+      action: PayloadAction<userProfileInitialStateProps>
     ) {
       const { username: firstName, email } = action.payload;
       state.username = firstName;
@@ -155,11 +158,11 @@ const userProfileSlice = createSlice({
 });
 
 const userAuthenticationSliceInitialState = {
-  view: "login",
+  view: 'login',
 };
 
 const userAuthentication = createSlice({
-  name: "authenticationSlice",
+  name: 'authenticationSlice',
   initialState: userAuthenticationSliceInitialState,
   reducers: {},
 });

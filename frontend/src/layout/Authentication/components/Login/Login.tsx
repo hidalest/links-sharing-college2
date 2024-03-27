@@ -1,4 +1,4 @@
-import { LoginProps } from '../../../../interfaces';
+import { FindUserInterface, LoginProps } from '../../../../interfaces';
 import Card from '../../../../components/UI/Card/Card';
 import InputText from '../../../../components/UI/InputText/InputText';
 import { emailRegex, passwordRegex } from '../../../../utils/regex';
@@ -6,7 +6,11 @@ import Button from '../../../../components/UI/Button/Button';
 
 import styles from './Login.module.scss';
 import { useAppDispatch } from '../../../../hooks/hooks';
-import { appActions, userProfileActions } from '../../../../store/store';
+import {
+  appActions,
+  linkActions,
+  userProfileActions,
+} from '../../../../store/store';
 import { FormEvent, useState } from 'react';
 import axios from 'axios';
 import { SERVER_URL } from '../../../../config/apiConfig';
@@ -17,7 +21,6 @@ function Login(props: LoginProps) {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const navigate = useNavigate();
-  const userProfileDispatch = useAppDispatch();
   const {
     loginHeader,
     loginButton,
@@ -55,17 +58,24 @@ function Login(props: LoginProps) {
      *
      * }]
      */
-    const findUser = data.find((item) => item.email === userEmail);
+    const findUser = data.find(
+      (item: FindUserInterface) => item.email === userEmail
+    );
     if (findUser.password !== userPassword)
       return console.log('Wrong password');
 
     navigate('/home');
-    userProfileDispatch(
+
+    // Updates the user information in the store
+    dispatch(
       userProfileActions.updateUserProfile({
         username: findUser.username || '',
         email: findUser.email || '',
       })
     );
+
+    // Updates the user links in the store
+    dispatch(linkActions.updateLinksFromFetch(findUser.links));
   };
 
   return (
