@@ -33,6 +33,7 @@ function HomeLinks(props: HomeLinksProps) {
   } = props.homeLinksData;
 
   const userLinks = useAppSelector((state) => state.links.links);
+  const userProfileState = useAppSelector((state) => state.userProfile);
   const dispatch = useAppDispatch();
   const view = useAppSelector((state) => state.app.currentView);
 
@@ -70,6 +71,20 @@ function HomeLinks(props: HomeLinksProps) {
   useEffect(() => {
     gettingAllUsers();
   }, []);
+
+  const onSaveToDatabase = async () => {
+    console.log(allUsers);
+
+    const updateUser = allUsers.map((user: FindUserInterface) => {
+      if (user.email === userProfileState.email) {
+        user.links = [...userLinks];
+      }
+
+      return user;
+    });
+
+    console.log(updateUser);
+  };
 
   return (
     <>
@@ -183,7 +198,9 @@ function HomeLinks(props: HomeLinksProps) {
             {showProfileForm && <ProfileDetailsForm {...profileDetailsProps} />}
 
             <Card priority='white' className={styles['buttonSave--container']}>
-              <Button priority={'primary'}>{btnCopy}</Button>
+              <Button onClick={onSaveToDatabase} priority={'primary'}>
+                {btnCopy}
+              </Button>
             </Card>
           </Card>
         )}

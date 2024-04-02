@@ -219,5 +219,5 @@ export interface FindUserInterface {
   username: string;
   email: string;
   password: string;
-  links: [LinkType];
+  links: LinkType[];
 }
