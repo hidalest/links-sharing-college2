@@ -43,6 +43,11 @@ const linksStore = createSlice({
   name: 'links',
   initialState: linkStoreInitialState,
   reducers: {
+    logoutUser(state) {
+      state.username = '';
+      state.email = '';
+      state.links = [];
+    },
     updateUserFromFetch(
       state,
       action: PayloadAction<{ username: string; email: string }>
@@ -157,6 +162,11 @@ const userProfileSlice = createSlice({
   name: 'userProfileSlice',
   initialState: userProfileInitialState,
   reducers: {
+    logoutUser(state) {
+      state.username = '';
+      state.email = '';
+      state.profileImgURL = null;
+    },
     updateUserProfile(
       state,
       action: PayloadAction<userProfileInitialStateProps>

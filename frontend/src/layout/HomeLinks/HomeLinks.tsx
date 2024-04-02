@@ -13,7 +13,7 @@ import { PhoneMockup } from '../../components/PhoneMockup/PhoneMockup';
 
 import styles from './HomeLinks.module.scss';
 import { ProfileDetailsForm } from './ProfileDetailsForm/ProfileDetailsForm';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { SERVER_URL } from '../../config/apiConfig';
 import { useEffect, useState } from 'react';
 
@@ -70,9 +70,12 @@ function HomeLinks(props: HomeLinksProps) {
 
   const onSaveToDatabase = async () => {
     console.log('Button clicked');
+    console.log(userProfileState);
     const updateUser = allUsers.map((user: FindUserInterface) => {
       if (user.email === userProfileState.email) {
         user.links = [...userLinks];
+        user.email = userProfileState.email;
+        user.username = userProfileState.username;
       }
       return user;
     });
@@ -82,12 +85,12 @@ function HomeLinks(props: HomeLinksProps) {
     try {
       console.log('getting here');
       const response = await axios.post(SERVER_URL, updateUser, {
-        timeout: 10000, // Timeout in milliseconds (adjust as needed)
+        timeout: 5000, // Timeout in milliseconds (adjust as needed)
       });
       console.log(response);
       alert('Account created successfully!');
       console.log(updateUser);
-    } catch (error) {
+    } catch (error: AxiosError | any) {
       console.error('Error:', error);
       if (error.code === 'ECONNABORTED') {
         console.log('Request timed out');

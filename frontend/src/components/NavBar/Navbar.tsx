@@ -4,7 +4,7 @@ import { NavBarProps } from '../../interfaces';
 
 import { SVGWrapper } from '../UI/SVGWrapper/SVGWrapper';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { appActions } from '../../store/store';
+import { appActions, linkActions, userProfileActions } from '../../store/store';
 import { routes } from '../../lib/routes';
 import adminIcon from '../../assets/images/admin.png';
 import styles from './Navbar.module.scss';
@@ -32,9 +32,14 @@ function Navbar({ navbarProps, mainLogoDesktop, mainLogoSmall }: NavBarProps) {
     dispatch(appActions.changeView('admin'));
   };
 
+  const onLogoutUser = () => {
+    dispatch(userProfileActions.logoutUser());
+    dispatch(linkActions.logoutUser());
+  };
+
   return (
     <nav className={styles.navbar}>
-      <Link to={'/'}>
+      <Link to={'/'} onClick={onLogoutUser}>
         <img src={mainLogoDesktop} className={styles['mainLogo-big']}></img>
         <img src={mainLogoSmall} className={styles['mainLogo-small']}></img>
       </Link>
