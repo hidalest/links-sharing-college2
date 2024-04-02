@@ -14,7 +14,25 @@
             }
         ],
         "password": "admin",
-        "username": "admin",
-        "profileImgURL": ""
+        "profileImgURL": "",
+        "username": "admin"
+    },
+    {
+        "email": "test@test.com",
+        "links": [
+            {
+                "backgroundColor": "#333333",
+                "fontColor": "#ffffff",
+                "icon": "/src/assets/images/icon-github.svg",
+                "isValid": false,
+                "linkId": 1,
+                "name": "Github",
+                "placeholderLink": "https: //www.github.com/hidalest",
+                "userLink": ""
+            }
+        ],
+        "password": "test",
+        "profileImgURL": "",
+        "username": "test"
     }
 ]

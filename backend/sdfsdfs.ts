@@ -1,3 +1,24 @@
+// import { Request, Response } from 'express';
+
+import { Request, Response } from 'express';
+
+// const express = require('express');
+
+// const app = express();
+
+// const port = 9000;
+
+// // Middlewares
+// app.use(express.json());
+
+// app.get('/', (req: Request, res: Response) => {
+//   res.status(200).json({ status: 200, message: 'Success!' });
+// });
+
+// app.listen(port, () => {
+//   console.log(`Starting server on http://127.0.0.1:${port}`);
+// });
+
 const PORT = 8000;
 const express = require('express');
 const cors = require('cors');
@@ -8,7 +29,7 @@ morgan('tiny');
 
 const app = express();
 
-const DOCUMENT_ID = '0ca23f95-6806-47f3-9b8a-b1eee8cb21dd';
+const DOCUMENT_ID = '0779d200-4226-47d0-8ad5-a2af8ae43264';
 const COLLECTION = 'task8';
 
 const DOCUMENT_REQUEST_GET_URL = `https://de4dbf8d-859e-47c9-99b9-b01def343c49-us-east1.apps.astra.datastax.com/api/rest/v2/namespaces/linksSharing/collections/linksSharingData/0779d200-4226-47d0-8ad5-a2af8ae43264`;
@@ -22,7 +43,7 @@ app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   const fetchOptions = {
     method: 'GET',
     headers: {
@@ -40,7 +61,7 @@ app.get('/', (req, res) => {
     .catch((error) => console.log(error.message));
 });
 
-app.post('/', (req, res) => {
+app.post('/', (req: Request, res: Response) => {
   const data = req.body;
 
   const fetchOptions = {

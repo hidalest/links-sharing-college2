@@ -68,24 +68,40 @@ function HomeLinks(props: HomeLinksProps) {
     setAllUsers(data);
   };
 
-  useEffect(() => {
-    gettingAllUsers();
-  }, []);
-
   const onSaveToDatabase = async () => {
-    console.log(allUsers);
-
+    console.log('Button clicked');
     const updateUser = allUsers.map((user: FindUserInterface) => {
       if (user.email === userProfileState.email) {
         user.links = [...userLinks];
       }
-
       return user;
     });
 
     console.log(updateUser);
+
+    try {
+      console.log('getting here');
+      const response = await axios.post(SERVER_URL, updateUser, {
+        timeout: 10000, // Timeout in milliseconds (adjust as needed)
+      });
+      console.log(response);
+      alert('Account created successfully!');
+      console.log(updateUser);
+    } catch (error) {
+      console.error('Error:', error);
+      if (error.code === 'ECONNABORTED') {
+        console.log('Request timed out');
+        alert('Request timed out. Please try again later.');
+      } else {
+        console.log('Something went wrong:', error.message);
+        alert(`Something went wrong: ${error.message}`);
+      }
+    }
   };
 
+  useEffect(() => {
+    gettingAllUsers();
+  }, []);
   return (
     <>
       <Navbar navbarProps={navbarProps} {...props} />
