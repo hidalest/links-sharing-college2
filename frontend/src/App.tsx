@@ -30,11 +30,19 @@ function App() {
           <Route
             path={routes.home}
             element={
-              <HomeLinks
-                homeLinksData={homeLinksData}
-                mainLogoDesktop={data.mainLogoDesktop}
-                mainLogoSmall={data.mainLogoSmall}
-              />
+              username ? (
+                <HomeLinks
+                  homeLinksData={homeLinksData}
+                  mainLogoDesktop={data.mainLogoDesktop}
+                  mainLogoSmall={data.mainLogoSmall}
+                />
+              ) : (
+                <Authentication
+                  className={'authentication'}
+                  mainLogoDesktop={data.mainLogoDesktop}
+                  authenticationPhaseProps={authenticationPhaseProps}
+                />
+              )
             }
           />
           <Route
