@@ -12,6 +12,8 @@ type UserLink = {
 };
 
 type AppState = {
+  username: string;
+  email: string;
   links: UserLink[];
 };
 
@@ -32,6 +34,8 @@ type updateColorProps = {
   elementValue: string;
 };
 const linkStoreInitialState: AppState = {
+  username: '',
+  email: '',
   links: [],
 };
 
@@ -39,6 +43,13 @@ const linksStore = createSlice({
   name: 'links',
   initialState: linkStoreInitialState,
   reducers: {
+    updateUserFromFetch(
+      state,
+      action: PayloadAction<{ username: string; email: string }>
+    ) {
+      state.username = action.payload.username;
+      state.email = action.payload.email;
+    },
     updateLinksFromFetch(state, action: PayloadAction<UserLink[]>) {
       state.links = action.payload;
     },
@@ -100,7 +111,7 @@ const linksStore = createSlice({
 // APP General Store
 interface appStoreInitialStateProps {
   theme: 'light' | 'dark';
-  currentView: 'links' | 'profileDetails';
+  currentView: 'links' | 'profileDetails' | 'admin';
   currentAuthenticationView: 'login' | 'signup';
 }
 
@@ -114,7 +125,10 @@ const appSlice = createSlice({
   name: 'app',
   initialState: appStoreInitialState,
   reducers: {
-    changeView(state, action: PayloadAction<'links' | 'profileDetails'>) {
+    changeView(
+      state,
+      action: PayloadAction<'links' | 'profileDetails' | 'admin'>
+    ) {
       state.currentView = action.payload;
     },
     changeAuthenticationView(state) {

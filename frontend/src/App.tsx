@@ -37,6 +37,16 @@ function App() {
               />
             }
           />
+          <Route
+            path={routes.admin}
+            element={
+              <HomeLinks
+                homeLinksData={homeLinksData}
+                mainLogoDesktop={data.mainLogoDesktop}
+                mainLogoSmall={data.mainLogoSmall}
+              />
+            }
+          />
           {/* //BUG the navigation is working weard when there's no username */}
           <Route
             path={`/${routes.preview}/${username}`}

@@ -13,6 +13,33 @@
   justify-content: space-between;
   width: 63%;
   height: 80rem;
+  &.adminClass {
+    width: 100%;
+    justify-content: start;
+    div {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 2rem;
+      margin: 1rem;
+      font-size: 2rem;
+      color: $purple;
+
+      span {
+        color: $dark-grey;
+        margin-left: 1.5rem;
+      }
+
+      button {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .adminIcon {
+    width: 25px;
+    height: 25px;
+  }
 
   @include responsiveMax($tablet) {
     width: 100%;

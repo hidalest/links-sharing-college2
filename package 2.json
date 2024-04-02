@@ -1,0 +1,8 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hidalest/link-sharing-app.git",
+  "author": "Esteban Hidalgo <80435494+hidalest@users.noreply.github.com>",
+  "license": "MIT"
+}

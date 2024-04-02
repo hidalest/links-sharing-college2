@@ -6,11 +6,12 @@ import { SVGWrapper } from '../UI/SVGWrapper/SVGWrapper';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { appActions } from '../../store/store';
 import { routes } from '../../lib/routes';
-
+import adminIcon from '../../assets/images/admin.png';
 import styles from './Navbar.module.scss';
 
 function Navbar({ navbarProps, mainLogoDesktop, mainLogoSmall }: NavBarProps) {
   const dispatch = useAppDispatch();
+  const isAdmin = useAppSelector((state) => state.links.username) === 'admin';
   const {
     logoLinkPage,
     logoProfilePage,
@@ -26,6 +27,9 @@ function Navbar({ navbarProps, mainLogoDesktop, mainLogoSmall }: NavBarProps) {
     dispatch(appActions.changeView('links'));
   const onChangeProfileDetailsViewHandler = () => {
     dispatch(appActions.changeView('profileDetails'));
+  };
+  const onChangeAdminView = () => {
+    dispatch(appActions.changeView('admin'));
   };
 
   return (
@@ -59,6 +63,22 @@ function Navbar({ navbarProps, mainLogoDesktop, mainLogoSmall }: NavBarProps) {
           <SVGWrapper markup={logoProfilePage} color='' />
           <span className={styles['link-copy']}>{profileDetailsPageCopy}</span>
         </Link>
+        {/* ADMIN BUTTON */}
+        {isAdmin && (
+          <Link
+            onClick={onChangeAdminView}
+            to={`${routes.admin}`}
+            className={`${styles.navbarLinks} ${styles.routeLink} ${
+              location.pathname === '/admin' && view === 'admin'
+                ? styles.activeRoute
+                : ''
+            }`}
+          >
+            {/* <SVGWrapper markup={adminIcon} color='' /> */}
+            <img src={adminIcon} alt='' style={{ height: '15px' }} />
+            <span className={styles['link-copy']}>{'Admin'}</span>
+          </Link>
+        )}
       </section>
       <Link
         to={`${routes.preview}/${username.toLowerCase()}`}

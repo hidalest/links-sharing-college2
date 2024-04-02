@@ -74,6 +74,13 @@ function Login(props: LoginProps) {
       })
     );
 
+    dispatch(
+      linkActions.updateUserFromFetch({
+        username: findUser.username,
+        email: findUser.email,
+      })
+    );
+
     // Updates the user links in the store
     dispatch(linkActions.updateLinksFromFetch(findUser.links));
   };
