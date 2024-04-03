@@ -12,6 +12,8 @@ import { appActions } from '../../../../store/store';
 import { FormEvent, useReducer, useState } from 'react';
 
 import styles from './Signup.module.scss';
+import axios from 'axios';
+import { SERVER_URL } from '../../../../config/apiConfig';
 
 type InputsProperties = {
   value: string;
@@ -144,12 +146,29 @@ function Signup(props: SignupProps) {
     console.log(isValid);
   };
 
-  const onSubmitAccount = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmitAccount = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    if (isConfirmPasswordValid === false) return;
+    if (
+      isConfirmPasswordValid === false ||
+      !inputsElements.inputEmail.isValid ||
+      !inputsElements.inputPassword.isValid ||
+      !inputsElements.inputUsername.isValid
+    ) {
+      alert('You entered something wrong. Please review your information');
+      return;
+    }
 
+    const data = await axios.get(SERVER_URL).then((res) => res.data.data);
+    data.push({
+      email: inputsElements.inputEmail.value,
+      password: inputsElements.inputPassword.value,
+      username: inputsElements.inputUsername.value,
+      links: [],
+    });
+
+    console.log(data);
     console.log('Successfull register!');
   };
 
