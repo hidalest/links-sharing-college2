@@ -8,6 +8,7 @@ interface ButtonProps {
   priority: 'primary' | 'secondary' | 'tertiary';
   name?: string;
   type?: 'button' | 'submit';
+  disabled?: boolean;
 }
 
 function Button(props: ButtonProps) {
@@ -18,6 +19,7 @@ function Button(props: ButtonProps) {
     onClick,
     name,
     type = 'button',
+    disabled = false,
   } = props;
   return (
     <button
@@ -27,6 +29,7 @@ function Button(props: ButtonProps) {
       } ${className}`}
       name={name}
       type={type}
+      disabled={disabled}
     >
       {children}
     </button>

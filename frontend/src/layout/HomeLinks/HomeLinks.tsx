@@ -102,9 +102,43 @@ function HomeLinks(props: HomeLinksProps) {
     }
   };
 
+  const onDeleteUser = async (userToDelete: FindUserInterface) => {
+    const confirmDeletion = window.confirm(
+      'Are you sure you want to delete the user?'
+    );
+
+    if (!confirmDeletion) return;
+
+    const newData = allUsers.filter(
+      (user: FindUserInterface) => user.email !== userToDelete.email
+    );
+
+    console.log(newData);
+    try {
+      console.log('getting here');
+      const response = await axios.post(SERVER_URL, newData, {
+        timeout: 5000, // Timeout in milliseconds (adjust as needed)
+      });
+      console.log(response);
+      alert('User Successfully Deleted');
+      console.log(newData);
+    } catch (error: AxiosError | any) {
+      console.error('Error:', error);
+      if (error.code === 'ECONNABORTED') {
+        console.log('Request timed out');
+        alert('Request timed out. Please try again later.');
+      } else {
+        console.log('Something went wrong:', error.message);
+        alert(`Something went wrong: ${error.message}`);
+      }
+    }
+    setAllUsers(newData);
+  };
+
   useEffect(() => {
     gettingAllUsers();
   }, []);
+
   return (
     <>
       <Navbar navbarProps={navbarProps} {...props} />
@@ -126,7 +160,14 @@ function HomeLinks(props: HomeLinksProps) {
                     Number of Links:
                     <span>{user.links.length}</span>
                   </p>
-                  <Button priority='primary'>Delete User</Button>
+                  {user.username !== 'admin' && (
+                    <Button
+                      priority='primary'
+                      onClick={() => onDeleteUser(user)}
+                    >
+                      Delete User
+                    </Button>
+                  )}
                 </Card>
               </>
             ))}
