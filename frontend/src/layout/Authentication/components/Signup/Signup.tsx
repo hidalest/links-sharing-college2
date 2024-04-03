@@ -14,6 +14,7 @@ import { FormEvent, useReducer, useState } from 'react';
 import styles from './Signup.module.scss';
 import axios from 'axios';
 import { SERVER_URL } from '../../../../config/apiConfig';
+import { handleRequest } from '../../../../utils/handlePostRequest';
 
 type InputsProperties = {
   value: string;
@@ -148,6 +149,8 @@ function Signup(props: SignupProps) {
 
   const onSubmitAccount = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(inputsElements);
+    console.log('click');
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     if (
@@ -168,6 +171,16 @@ function Signup(props: SignupProps) {
       links: [],
     });
 
+    try {
+      console.log('getting here');
+      await handleRequest(
+        data,
+        'User created Successfully',
+        'Something went wrong while saving.'
+      );
+    } catch (error) {
+      console.error('Error:', error);
+    }
     console.log(data);
     console.log('Successfull register!');
   };
@@ -227,6 +240,7 @@ function Signup(props: SignupProps) {
           isRequired
           id={'inputPassword'}
           type='password'
+          shouldValidate
         />
         {/* Confirm Password */}
         <label htmlFor='inputConfirmPassword'>{confirmPasswordLabel}</label>
@@ -243,10 +257,12 @@ function Signup(props: SignupProps) {
           type='password'
           isValid={isConfirmPasswordValid}
           onChange={getConfirmationPassword}
+          shouldValidate
         />
         <p>{passwordInstructions}</p>
         <Button
           priority='primary'
+          type='submit'
           className={`${styles.buttonLogin} ${styles.submitButton}`}
         >
           {registerBtn}
