@@ -16,6 +16,7 @@ import { ProfileDetailsForm } from './ProfileDetailsForm/ProfileDetailsForm';
 import axios, { AxiosError } from 'axios';
 import { SERVER_URL } from '../../config/apiConfig';
 import { useEffect, useState } from 'react';
+import { handleRequest } from '../../utils/handlePostRequest';
 
 function HomeLinks(props: HomeLinksProps) {
   const [allUsers, setAllUsers] = useState([]);
@@ -80,25 +81,16 @@ function HomeLinks(props: HomeLinksProps) {
       return user;
     });
 
-    console.log(updateUser);
-
     try {
       console.log('getting here');
-      const response = await axios.post(SERVER_URL, updateUser, {
-        timeout: 5000, // Timeout in milliseconds (adjust as needed)
-      });
-      console.log(response);
-      alert('Account created successfully!');
+      await handleRequest(
+        updateUser,
+        'Links successfully Updated',
+        'Something went wrong while saving.'
+      );
       console.log(updateUser);
-    } catch (error: AxiosError | any) {
+    } catch (error) {
       console.error('Error:', error);
-      if (error.code === 'ECONNABORTED') {
-        console.log('Request timed out');
-        alert('Request timed out. Please try again later.');
-      } else {
-        console.log('Something went wrong:', error.message);
-        alert(`Something went wrong: ${error.message}`);
-      }
     }
   };
 
@@ -113,24 +105,15 @@ function HomeLinks(props: HomeLinksProps) {
       (user: FindUserInterface) => user.email !== userToDelete.email
     );
 
-    console.log(newData);
     try {
-      console.log('getting here');
-      const response = await axios.post(SERVER_URL, newData, {
-        timeout: 5000, // Timeout in milliseconds (adjust as needed)
-      });
-      console.log(response);
-      alert('User Successfully Deleted');
+      await handleRequest(
+        newData,
+        'User Successfully Deleted',
+        'Something went wrong while deleting.'
+      );
       console.log(newData);
-    } catch (error: AxiosError | any) {
+    } catch (error) {
       console.error('Error:', error);
-      if (error.code === 'ECONNABORTED') {
-        console.log('Request timed out');
-        alert('Request timed out. Please try again later.');
-      } else {
-        console.log('Something went wrong:', error.message);
-        alert(`Something went wrong: ${error.message}`);
-      }
     }
     setAllUsers(newData);
   };
