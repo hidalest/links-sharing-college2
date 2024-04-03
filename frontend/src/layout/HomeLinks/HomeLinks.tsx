@@ -13,7 +13,7 @@ import { PhoneMockup } from '../../components/PhoneMockup/PhoneMockup';
 
 import styles from './HomeLinks.module.scss';
 import { ProfileDetailsForm } from './ProfileDetailsForm/ProfileDetailsForm';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { SERVER_URL } from '../../config/apiConfig';
 import { useEffect, useState } from 'react';
 import { handleRequest } from '../../utils/handlePostRequest';

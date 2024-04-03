@@ -142,15 +142,17 @@ export interface AuthenticationPageProps {
   mainLogoDesktop: string;
   authenticationPhaseProps: {
     loginPhase: {
-      loginHeader: string;
-      loginInstructions: string;
+      emailIcon: string;
       emailLabel: string;
       emailPlaceholder: string;
+      loginButton: string;
+      loginHeader: string;
+      loginInstructions: string;
+      passwordIcon: string;
       passwordLabel: string;
       passwordPlaceholder: string;
-      loginButton: string;
-      registerInstructionsBtn: string;
       registerBtn: string;
+      registerInstructionsBtn: string;
     };
     signupPhase: {
       loginHeader: string;
@@ -177,19 +179,17 @@ export interface AuthenticationPageProps {
 export interface LoginProps {
   className?: string;
   loginPhase: {
-    loginHeader: string;
-    inputPasswordIcon: string;
-    usernameIcon: string;
-    loginInstructions: string;
     emailIcon: string;
     emailLabel: string;
     emailPlaceholder: string;
+    loginButton: string;
+    loginHeader: string;
+    loginInstructions: string;
+    passwordIcon: string;
     passwordLabel: string;
     passwordPlaceholder: string;
-    passwordIcon: string;
-    loginButton: string;
-    registerInstructionsBtn: string;
     registerBtn: string;
+    registerInstructionsBtn: string;
   };
 }
 export interface SignupProps {

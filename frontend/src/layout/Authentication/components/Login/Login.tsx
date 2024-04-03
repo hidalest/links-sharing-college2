@@ -22,15 +22,15 @@ function Login(props: LoginProps) {
   const [userPassword, setUserPassword] = useState('');
   const navigate = useNavigate();
   const {
-    loginHeader,
-    loginButton,
-    loginInstructions,
     emailIcon,
     emailLabel,
     emailPlaceholder,
+    loginButton,
+    loginHeader,
+    loginInstructions,
+    passwordIcon,
     passwordLabel,
     passwordPlaceholder,
-    passwordIcon,
     registerBtn,
     registerInstructionsBtn,
   } = loginPhase;
